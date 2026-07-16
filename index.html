@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>REEF - Coral Reef Conservation</title>
+    <!--
+      Security Headers Note (Deploy-time):
+      Ensure the production environment serves:
+      - Content-Security-Policy: default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;
+      - X-Frame-Options: DENY
+      - X-Content-Type-Options: nosniff
+      - Strict-Transport-Security: max-age=31536000; includeSubDomains
+    -->
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

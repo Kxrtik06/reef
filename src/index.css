@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400&family=Inter:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-reef-darkest: #050D0E;
+  --color-reef-dark: #0A1719;
+  --color-reef-base: #12262A;
+  --color-reef-coral: #FF5E3A;
+  --color-reef-coralHover: #FF8A6B;
+  --color-reef-bleached: #F2EFE9;
+  --color-reef-textPrimary: #C9C4BA;
+  --color-reef-textSecondary: #8A867F;
+  --color-reef-recovery: #2DD4A7;
+
+  --font-fraunces: 'Fraunces', serif;
+  --font-inter: 'Inter', sans-serif;
+
+  --tracking-tighter: -.04em;
+  --tracking-tight: -.02em;
+
+  --leading-tight: 0.95;
+  --leading-relaxed: 1.7;
+
+  --animate-drift: drift 20s linear infinite alternate;
+  
+  @keyframes drift {
+    0% { transform: translate3d(0, 0, 0) scale(1); }
+    100% { transform: translate3d(-10%, -10%, 0) scale(1.1); }
+  }
+}
+
+:root {
+  --bleach: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: none;
+  }
+}
+
+body {
+  @apply bg-reef-darkest text-reef-textPrimary font-inter antialiased overflow-x-hidden;
+}
+
+.bleach-effect {
+  filter: saturate(calc(1 - var(--bleach))) contrast(calc(1 - (var(--bleach) * 0.2)));
+}
+
+.no-bleach {
+  filter: saturate(1) !important;
+}
+
+.bleach-bg-transition {
+  transition: background-color 0.1s linear;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bleach-effect {
+    filter: none;
+  }
+}
