@@ -17,10 +17,10 @@ export function useScrollBleach() {
           // Sharper curve: reaches 100% bleach faster and holds it through the middle sections
           if (scrollPercent < 0.25) {
             bleach = scrollPercent / 0.25; 
-          } else if (scrollPercent <= 0.65) {
+          } else if (scrollPercent <= 0.5) {
             bleach = 1; 
           } else {
-            const p = (scrollPercent - 0.65) / 0.35; 
+            const p = (scrollPercent - 0.5) / 0.5; 
             bleach = 1 - (p * 0.7); // Leaves a little color (0.3) for the footer/recovery
           }
           

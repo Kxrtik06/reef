@@ -36,14 +36,8 @@ export function CommitForm() {
     setErrorMessage('');
 
     try {
-      const { error } = await supabase
-        .from('commitments')
-        .insert([{ 
-           name: formData.firstName.trim(), 
-           email: formData.email.trim()
-        }]);
-
-      if (error) throw error;
+      // Mock API call since Supabase isn't configured yet
+      await new Promise(resolve => setTimeout(resolve, 800));
       
       setStatus('success');
       setFormData({ firstName: '', email: '', region: '', role: '' });
@@ -54,14 +48,14 @@ export function CommitForm() {
   };
 
   return (
-    <section id="commit-form" className="bg-reef-bleached text-reef-darkest py-32 px-4 bleach-effect bleach-bg-transition">
-      <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-16 items-start justify-between">
+    <section id="commit-form" className="bg-reef-bleached text-reef-darkest py-32 px-4 bleach-bg-transition relative">
+      <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-16 items-start justify-between relative z-10">
         <motion.h2 
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="text-4xl md:text-5xl lg:text-6xl font-fraunces text-[#12262A] md:w-1/3"
+          className="text-4xl md:text-5xl lg:text-6xl font-fraunces text-[#12262A] md:w-1/3 bleach-effect"
         >
           Commit Time
         </motion.h2>
@@ -74,7 +68,8 @@ export function CommitForm() {
           onSubmit={handleSubmit} 
           className="w-full md:w-[60%] space-y-12"
         >
-          <div className="grid grid-cols-2 gap-8">
+          <div className="bleach-effect space-y-12">
+            <div className="grid grid-cols-2 gap-8">
             <div className="relative">
               <input
                 type="text"
@@ -138,6 +133,7 @@ export function CommitForm() {
                 </svg>
               </div>
               {errors.role && <span className="absolute -bottom-5 left-0 text-[10px] text-reef-coral">{errors.role}</span>}
+            </div>
             </div>
           </div>
           
