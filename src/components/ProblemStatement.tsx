@@ -22,8 +22,8 @@ export function ProblemStatement() {
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-fraunces leading-tight mb-8 text-balance text-[#8A867F]">
-            Since 1950, live coral cover has<br />declined by 50%.
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-fraunces leading-tight mb-8 text-balance text-[#12262A]">
+            Since 1950, <span className="text-transparent bg-clip-text bg-gradient-to-r from-reef-coral to-rose-500">live coral cover</span> has<br />declined by <span className="text-reef-coral font-bold">50%</span>.
           </h2>
           <p className="max-w-3xl mx-auto text-lg md:text-xl text-[#8A867F] mb-16 leading-relaxed text-balance">
             The rate of loss is accelerating exponentially due to human-driven climate change. What took millions of years to build is unraveling in decades. Without immediate intervention, we face the extinction of the ocean's most vital ecosystem.

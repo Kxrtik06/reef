@@ -14,13 +14,13 @@ export function useScrollBleach() {
           const scrollPercent = docHeight > 0 ? scrollTop / docHeight : 0;
           
           let bleach = 0;
-          // Sharper curve: reaches 100% bleach faster and holds it through the middle sections
-          if (scrollPercent < 0.25) {
-            bleach = scrollPercent / 0.25; 
-          } else if (scrollPercent <= 0.5) {
+          // Gradual curve: reaches 100% bleach slower so the user can see the color fade
+          if (scrollPercent < 0.5) {
+            bleach = scrollPercent / 0.5; 
+          } else if (scrollPercent <= 0.7) {
             bleach = 1; 
           } else {
-            const p = (scrollPercent - 0.5) / 0.5; 
+            const p = (scrollPercent - 0.7) / 0.3; 
             bleach = 1 - (p * 0.7); // Leaves a little color (0.3) for the footer/recovery
           }
           
